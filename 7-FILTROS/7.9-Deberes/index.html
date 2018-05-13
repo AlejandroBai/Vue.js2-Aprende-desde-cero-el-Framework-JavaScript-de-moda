@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+  <title>7.9 - Deberes</title>
+</head>
+
+<body>
+  <div id="app" class="container">
+    <div class="row justify-content-center align-items-center m-5">
+      <div class="input-group">
+        <input type="search" class="form-control" placeholder="Buscar..." v-model="busqueda">
+      </div>
+    </div>
+    <div class="row justify-content-between align-items-center m-5">
+      Rango de edad
+      <select class="custom-select" v-model="rangoElegido">
+        <!-- Con este loop recorremos el array de rangoEdad y mostramos sus valores. En la directiva v-model unimos rangoElegido, un valor vacío que recibirá el valor correspondiente al elemento elegido -->
+        <option v-for="rango in rangoEdad">{{ rango }}</option>
+      </select>
+      <div>
+        <span class="mr-4">0</span>
+        <input type="range" min="0" max="10" v-model="minimo" list="puntuacion">
+        <span class="ml-4">10</span>
+      </div>
+      <datalist id="puntuacion">
+        <!-- Con este loop mostramos los valores del input rango de 1 a 10. Como el index empieza en 0, le sumamos 1 -->
+        <option value="index + 1" label="index + 1" v-for="(option, index) in 10"></option>  
+      </datalist>
+      Ordenar...
+      <button class="btn btn-danger" @click="ordenarValoracion">
+        {{ textoValoracion }}
+      </button>
+      <button class="btn btn-danger" @click="ordenarAlfabeticamente">
+        {{ textoAlfabetico }}
+      </button>
+    </div>
+    <div class="row">
+      <!-- Hacemos funcionar el loop de las películas con nuestra propiedad computada funcionamiento que contiene los filtros -->
+      <div class="col-md-4 mb-4" v-for="pelicula in funcionamiento">
+        <div class="card text-white bg-dark">
+          <div class="card-body">
+            <h4 class="card-title">{{ pelicula.titulo }}</h4>
+            <p class="card-text">{{ pelicula.rangoEdad }}</p>
+            <span class="badge badge-primary p-3"> Valoración: {{ pelicula.valoracion }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <pre>{{ $data }}</pre>
+  </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash/lodash.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+</html>

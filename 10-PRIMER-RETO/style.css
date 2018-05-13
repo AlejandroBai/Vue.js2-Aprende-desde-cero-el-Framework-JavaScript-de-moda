@@ -1,0 +1,130 @@
+.filas {
+  background: #212121;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #7f8c8d;
+}
+.resultados {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ecf0f1;
+}
+
+.barraSalud {
+  width: 100%;
+  height: 40px;
+  background: #ecf0f1;
+}
+
+.salud {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0;
+  height: 40px;
+  background: #2ecc71;
+}
+
+.notificacion {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0 5px;
+  background: #212121;
+  color: #ecf0f1;
+  border-radius: 5px;
+
+}
+
+.btn {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.list-group {
+  width: 100%;
+  text-align: center;
+}
+
+.list-group-item:nth-child(2n+1) {
+  font-size: 12px;
+  font-weight: bold;
+  color: #00796B;
+}
+.list-group-item:nth-child(2n) {
+  font-size: 12px;
+  font-weight: bold;
+  color: #D32F2F;
+}
+
+.img {
+  display: block;
+  width: 20%;
+  margin: 0 auto;
+  border-radius: 100px;
+}
+
+@media only screen and (max-width: 520px) {
+  body {
+    background: #212121;
+  }
+  .btn {
+    display: block;
+    width: 45%;
+    height: 35px;
+    line-height: 17px;
+    margin: 10px 0;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .resultados {
+    margin: 5px 0;
+  }
+  .salud, .barraSalud {
+    height: 20px;
+  }
+  .notificacion {
+    font-size: 10px;
+  }
+  .filas {
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px;
+  }
+  .filas-yo {
+    top:0;
+    padding-bottom: 0;
+    
+  }
+  .filas-monstruo {
+    padding-bottom: 0;
+  }
+  .filas-botones {
+    position: fixed;
+    width: 100%;        
+    display: flex;
+    bottom: 0;
+  }
+  .filas-lista {
+    position: fixed;
+    width: 100%;    
+    margin-top: 0;
+    height: 50%;
+    z-index: -1;
+  }
+  .list-group {
+    overflow: scroll;
+  }
+}
